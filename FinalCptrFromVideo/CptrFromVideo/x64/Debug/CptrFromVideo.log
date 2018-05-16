@@ -1,0 +1,19 @@
+﻿Build started 05.02.2018 22:40:49.
+     1>Project "C:\Users\олег\Desktop\Проект\TrialCptrFromVideo\CptrFromVideo\CptrFromVideo.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /IC:\C++_Lib\opencv\build\include\opencv2 /IC:\C++_Lib\opencv\build\include\opencv /IC:\C++_Lib\opencv\build\include /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt Functions.cpp Matrix.cpp Source.cpp
+         Source.cpp
+         Matrix.cpp
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         Functions.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\олег\Desktop\Проект\TrialCptrFromVideo\x64\Debug\CptrFromVideo.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\C++_Lib\opencv\build\x64\vc14\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib opencv_world330d.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\олег\Desktop\Проект\TrialCptrFromVideo\x64\Debug\CptrFromVideo.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\олег\Desktop\Проект\TrialCptrFromVideo\x64\Debug\CptrFromVideo.lib" /MACHINE:X64 x64\Debug\Functions.obj
+         x64\Debug\Matrix.obj
+         x64\Debug\Source.obj
+         CptrFromVideo.vcxproj -> C:\Users\олег\Desktop\Проект\TrialCptrFromVideo\x64\Debug\CptrFromVideo.exe
+     1>Done Building Project "C:\Users\олег\Desktop\Проект\TrialCptrFromVideo\CptrFromVideo\CptrFromVideo.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.77
