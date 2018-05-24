@@ -1,12 +1,12 @@
-﻿Build started 14.05.2018 21:56:44.
+﻿Build started 22.05.2018 20:47:49.
      1>Project "C:\Users\олег\Desktop\Разное\Всякая всячина\Учеба\СПбГУ\Конференция 2018\TrialCptrFromVideo\CptrFromVideo\CptrFromVideo.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /IC:\C++_Lib\opencv\build\include\opencv2 /IC:\C++_Lib\opencv\build\include\opencv /IC:\C++_Lib\opencv\build\include /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc110.pdb" /Gd /TP /errorReport:prompt Source.cpp
-         Source.cpp
-     1>Source.cpp(170): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /IC:\C++_Lib\opencv\build\include\opencv2 /IC:\C++_Lib\opencv\build\include\opencv /IC:\C++_Lib\opencv\build\include /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc110.pdb" /Gd /TP /errorReport:prompt hsvFilterNew.cpp
+         hsvFilterNew.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\олег\Desktop\Разное\Всякая всячина\Учеба\СПбГУ\Конференция 2018\TrialCptrFromVideo\x64\Release\CptrFromVideo.exe" /NOLOGO /LIBPATH:C:\C++_Lib\opencv\build\x64\vc14\bin /LIBPATH:C:\C++_Lib\opencv\build\x64\vc14\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib opencv_world330.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\олег\Desktop\Разное\Всякая всячина\Учеба\СПбГУ\Конференция 2018\TrialCptrFromVideo\x64\Release\CptrFromVideo.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\олег\Desktop\Разное\Всякая всячина\Учеба\СПбГУ\Конференция 2018\TrialCptrFromVideo\x64\Release\CptrFromVideo.lib" /MACHINE:X64 x64\Release\Functions.obj
          x64\Release\hsvFilter.obj
+         x64\Release\hsvFilterNew.obj
          x64\Release\Matrix.obj
          x64\Release\Positioning.obj
          x64\Release\Source.obj
@@ -17,4 +17,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.29
+Time Elapsed 00:00:03.69

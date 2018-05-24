@@ -219,19 +219,11 @@ void ImagesAreaDetecting(Mat &image, Mat &imageField, Mat &imageArea)
 	//waitKey(0);
 
 	//Теперь наложим на основное изображение
-	for( int y=0; y<imageArea.rows; y++ ) {
-		for( int x=0; x<imageArea.cols; x++ ) {
-
+	for( int y=0; y<imageArea.rows; y++ ) 
+		for( int x=0; x<imageArea.cols; x++ ) 
 			if ( imageTemp.at<Vec3b>(y,x)[2] != 255 )
-                {
-                    imageArea.at<Vec3b>(y,x)[0]= 0; // B - синий
-                    imageArea.at<Vec3b>(y,x)[1]= 0; // G - зелёный
-                    imageArea.at<Vec3b>(y,x)[2]= 0; // R - красный
-                }
-
-		}
-	}
-
+				imageArea.at<Vec3b>(y,x) = Vec3b( 0,0,0 );
+	
 }
 
 

@@ -44,38 +44,40 @@ void onMouse( int event, int x, int y, int, void* )
 
     Point seed = Point(x,y);
 
-	/*imshow("Mask", mask);
-    waitKey(0);*/
-
 	//Закрасим пиксели нужной области
-	floodFill(mask, seed, Scalar(255) ,0, Scalar(), Scalar(), 4 );
-	numberOfPixels += floodFill(mask, seed, Scalar(100) ,0, Scalar(), Scalar(), 4 );
-
-	imshow("Mask", mask);
+	if ( !( (mask.at<Vec3b>(y,x)[0] == mask.at<Vec3b>(y,x)[1]) && (mask.at<Vec3b>(y,x)[0] == mask.at<Vec3b>(y,x)[2]) && (mask.at<Vec3b>(y,x)[0] == 100) ) )
+	{
+		//floodFill(mask, seed, Vec3b(255, 255, 255) ,0, Scalar(), Scalar(), 4 );
+		numberOfPixels += floodFill(mask, seed, Vec3b(100, 100, 100) ,0, Scalar(), Scalar(), 4 );
+	}
 
     cout << numberOfPixels << " pixels in total were repainted\n";
 }
 
-void pixelsMemorising()
+void pixelsMemorising(Mat &image)
 {
 	//Найдем и запомним координаты нужных пикселей
-		neededPixels = new Point[numberOfPixels];
-		int k = 0;
-		for( int y=0; y<mask.rows; y++ ) 
+	neededPixels = new Point[numberOfPixels];
+	int k = 0;
+
+	for( int y=0; y<mask.rows; y++ ) 
+	{
+		for( int x=0; x<mask.cols; x++ ) 
 		{
-			for( int x=0; x<mask.cols; x++ ) 
+			if ( (mask.at<Vec3b>(y,x)[0] == mask.at<Vec3b>(y,x)[1]) && (mask.at<Vec3b>(y,x)[0] == mask.at<Vec3b>(y,x)[2]) && (mask.at<Vec3b>(y,x)[0] == 100) )
 			{
-
-				if (( mask.at<Vec3b>(y,x)[0] == mask.at<Vec3b>(y,x)[1]) && (mask.at<Vec3b>(y,x)[1] == mask.at<Vec3b>(y,x)[2]) && (mask.at<Vec3b>(y,x)[0] == 100 ))
-					{
-						neededPixels[k] = Point(x,y);
-						k++;
-					}
-
+				neededPixels[k] = Point(x,y);
+				k++;
+				//cout << x << " " << y << " " << (int)mask.at<Vec3b>(y,x)[0] << " " << (int)mask.at<Vec3b>(y,x)[1] << " " << (int)mask.at<Vec3b>(y,x)[2] << endl;
 			}
-			if (k == numberOfPixels)
-				break;
 		}
+		if (k == numberOfPixels)
+			break;
+	}
+
+	imshow("mask", mask);
+	waitKey(0);
+
 }
 
 int main(int argc, char* argv[])
@@ -112,7 +114,8 @@ int main(int argc, char* argv[])
 
 	//Пользователь кликает на нужные маркеры
 	Canny(imageArea, mask, 100, 200);
-	copyMakeBorder(mask, mask, 1, 1, 1, 1, BORDER_REPLICATE);
+	cvtColor(mask, mask, COLOR_GRAY2BGR);
+	imshow("Mask", mask);
 	namedWindow( "ImageArea", 0 );
 	setMouseCallback( "ImageArea", onMouse, 0 );
 
@@ -129,7 +132,7 @@ int main(int argc, char* argv[])
         }
 	}
 	// Запомним координаты нужных пикселей
-	pixelsMemorising();
+	pixelsMemorising(image);
 	
 
 	clock_t timeStart = 0;
@@ -137,7 +140,9 @@ int main(int argc, char* argv[])
 	timeStart = clock();
 
 	//Распознаем объекты по цвету
-	objectsDetecting(imageArea, imageObjects);
+	//objectsDetecting(imageArea, imageObjects);
+
+	coloursDetecting(imageArea, imageObjects, neededPixels, numberOfPixels);
 
 	/*imshow("Dst", imageArea);
 	imshow("Objects", imageObjects);
@@ -195,10 +200,9 @@ int main(int argc, char* argv[])
 		cout << (double)(timeStop - timeStart)/(double)(CLOCKS_PER_SEC) << " Seconds elapsed" << endl;
 
 	//int i = 0;
-	//for( int y=0; y<image.rows; y++ ) 
-	//	{
-	//		for( int x=0; x<image.cols; x++ ) 
-	//		{
+	//for( int x=0; x<mask.rows; x++ ) {
+
+	//		for( int y=0; y<mask.cols; y++ ) {
 
 	//			if ((x == neededPixels[i].x) && (y == neededPixels[i].y))
 	//				{

@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="hsvFilter.cpp" />
+    <ClCompile Include="hsvFilterNew.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Positioning.cpp" />
     <ClCompile Include="Source.cpp" />

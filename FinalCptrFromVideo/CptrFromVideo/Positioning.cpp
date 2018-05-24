@@ -66,7 +66,7 @@ int objectsPositioning(Mat &imageObjects, Mat &imageColoredObjects, Point* &obje
 
 	for( int i=0; i<color; i++) 
 	{
-		if (objects[i] > 10)
+		if (objects[i] > 15)
 		{
 			objectPosition[i].x /= objects[i];
 			objectPosition[i].y /= objects[i];

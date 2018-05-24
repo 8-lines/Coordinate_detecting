@@ -30,6 +30,9 @@
     <ClCompile Include="Positioning.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="hsvFilterNew.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">

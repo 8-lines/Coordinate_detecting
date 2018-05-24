@@ -20,6 +20,8 @@ void ImagesAreaDetecting(Mat &image, Mat &imageField, Mat &imageArea);
 
 void objectsDetecting(Mat &imageArea, Mat &imageObjects);
 
+void coloursDetecting(Mat &image, Mat &imageObjects, Point* &neededPixels, int numberOfPixels);
+
 int objectsPositioning(Mat &imageObjects, Mat &imageColoredObjects, Point* &objectPosition);
 
 void ImagesShowing(Mat &image, Mat &imageGray, Mat &imageSmooth, Mat &imageBorders, Mat &imageLines, Mat &imageField, Mat &imageArea, Mat &imageObjects, Mat &imageColoredObjects);
