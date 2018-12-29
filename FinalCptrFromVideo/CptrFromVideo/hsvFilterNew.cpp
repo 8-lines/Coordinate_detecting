@@ -39,9 +39,9 @@ int HSVmax = 255;
 
 void coloursDetecting(Mat &imageArea, Mat &imageObjects, Point* &neededPixels, int numberOfPixels)
 {
-	/// конвертируем в HSV
+	/// конвертируем в необходимый формат
 	
-	cvtColor( imageArea, hsv, CV_BGR2HSV_FULL );
+	cvtColor( imageArea, hsv, CV_BGR2YUV );
 	//imageArea.copyTo(hsv);
 
 	// создаем одноканальные изображения
@@ -104,8 +104,8 @@ void coloursDetecting(Mat &imageArea, Mat &imageObjects, Point* &neededPixels, i
 			Vmax = (int)hsv.at<Vec3b>(y,x)[2];
 	}
 
-	cout << "H: " << Hmin << " " << Hmax << endl;
-	cout << "S: " << Smin << " " << Smax << endl;
+	cout << "Y: " << Hmin << " " << Hmax << endl;
+	cout << "U: " << Smin << " " << Smax << endl;
 	cout << "V: " << Vmin << " " << Vmax << endl;
 
     inRange(h_plane, Scalar(Hmin), Scalar(Hmax), h_range);
@@ -117,19 +117,19 @@ void coloursDetecting(Mat &imageArea, Mat &imageObjects, Point* &neededPixels, i
         // показываем получившиеся изображения
 		imshow("Area",imageArea);
 
-		imshow("H", h_plane);
-		imshow("S", s_plane);
+		imshow("Y", h_plane);
+		imshow("U", s_plane);
 		imshow("V", v_plane);
 
-		imshow("H range", h_range);
-		imshow("S range", s_range);
+		imshow("Y range", h_range);
+		imshow("U range", s_range);
 		imshow("V range", v_range);
 
         // складываем одноканальные изображения
 		bitwise_and(h_range, s_range, hsv_and);
 		bitwise_and(hsv_and, v_range, hsv_and);
 
-		imshow("hsv and", hsv_and);
+		imshow("YUV and", hsv_and);
 
 		char c = waitKey(33);
             if (c == 27)  // если нажата ESC - выходим

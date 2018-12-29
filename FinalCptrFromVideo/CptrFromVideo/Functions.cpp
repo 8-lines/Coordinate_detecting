@@ -238,7 +238,7 @@ void ImagesShowing(Mat &image, Mat &imageGray, Mat &imageSmooth, Mat &imageBorde
 	imshow("Borders", imageBorders);
 	imshow("Lines", imageLines);
 	imshow("Field", imageField);	
-	imshow("Dst", imageArea);	
+	imshow("Area", imageArea);	
 	imshow("Objects", imageObjects);	
 	imshow("ColoredObjects", imageColoredObjects);
 
